@@ -1,3 +1,6 @@
+# Heavy UE4 Files
+*.VC.db
+
 # Visual Studio 2015 user specific files
 .vs/
 
