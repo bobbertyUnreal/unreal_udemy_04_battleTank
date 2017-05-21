@@ -1,5 +1,7 @@
 # Heavy UE4 Files
 *.VC.db
+*/StarterContent/
+*BattleGround_HeightMap.umap
 
 # Visual Studio 2015 user specific files
 .vs/
