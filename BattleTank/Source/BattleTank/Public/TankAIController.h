@@ -13,14 +13,12 @@ UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-	
-public:
+
+private:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick(float DeltaTime) override;	
 
-	void Tick(float DeltaTime);
-
-	// Get the player/AI controlled tank
+	// Get the AI controlled tank
 	ATank* GetControlledTank() const;
 
 	// Start the game
@@ -28,8 +26,4 @@ public:
 
 	// Get the player's tank for AI targeting
 	ATank* GetPlayerTank() const;
-
-	// Start moving tank barrel towards crosshair
-	void AimTowardsCrosshair();
-	
 };

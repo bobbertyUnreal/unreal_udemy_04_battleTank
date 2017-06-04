@@ -3,6 +3,21 @@
 #include "BattleTank.h"
 #include "TankAIController.h"
 
+// Called every frame
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		// TODO Move towards the player
+
+		// Aim at the player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		// Fire if ready
+
+	}
+}
+
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -28,14 +43,6 @@ void ATankAIController::BeginPlay()
 	}
 }
 
-// Called every frame
-void ATankAIController::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	//UE_LOG(LogTemp, Warning, TEXT("Tickity Boo"));
-	AimTowardsCrosshair();
-}
-
 ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
@@ -47,14 +54,4 @@ ATank* ATankAIController::GetPlayerTank() const
 	if (!PlayerPawn) { return nullptr; }
 	return Cast<ATank>(PlayerPawn);
 }
-
-void ATankAIController::AimTowardsCrosshair()
-{
-	if (!GetControlledTank()) { return; }
-
-	// Get world location if linetrace through crosshair
-	// If linetrace hits the landscape
-		// Controlled tank to aim at this point
-}
-
 
